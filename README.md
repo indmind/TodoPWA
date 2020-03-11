@@ -1,4 +1,4 @@
-# workshop_pwa
+# Todo PWA
 
 ## Project setup
 ```
