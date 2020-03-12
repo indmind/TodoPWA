@@ -40,6 +40,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 15px 0;
 }
 
 #name {
@@ -58,9 +59,7 @@ export default {
 
 input[type="checkbox"] + label.shadow {
   display: block;
-  margin: 0.2em;
   cursor: pointer;
-  padding: 0.2em;
 }
 
 input[type="checkbox"] {

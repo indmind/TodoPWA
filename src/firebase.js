@@ -12,5 +12,10 @@ const firebaseApp = firebase.initializeApp({
   measurementId: "G-YEV6X3QMQC"
 });
 
+firebaseApp
+  .firestore()
+  .enablePersistence()
+  .catch(() => {});
+
 export const db = firebaseApp.firestore();
 export const serverTimestamp = firebase.firestore.FieldValue.serverTimestamp;

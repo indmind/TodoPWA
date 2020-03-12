@@ -86,7 +86,7 @@ body {
 #tasks-list {
   list-style: none;
   margin: 20px auto;
-  padding: 0 25px;
+  padding: 0 20px;
   max-width: 400px;
 }
 
