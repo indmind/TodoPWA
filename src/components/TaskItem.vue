@@ -13,10 +13,12 @@
           })
         "
       />
-      <label :for="task['.key']" />
+      <label :for="task['.key']" class="shadow" />
     </div>
 
-    <p id="name" :class="task.done && 'done'">{{ task.name }}</p>
+    <label :for="task['.key']" id="name" :class="task.done && 'done'">{{
+      task.name
+    }}</label>
 
     <button @click="$emit('delete', task['.key'])" class="btn-noback">
       ❌
@@ -54,7 +56,7 @@ export default {
   background-color: #2196f3;
 }
 
-input[type="checkbox"] + label {
+input[type="checkbox"] + label.shadow {
   display: block;
   margin: 0.2em;
   cursor: pointer;
@@ -65,28 +67,25 @@ input[type="checkbox"] {
   display: none;
 }
 
-input[type="checkbox"] + label:before {
+input[type="checkbox"] + label.shadow:before {
   content: "✔";
-  /* font-size: 0.7em; */
-  border: 1px solid #000;
+  border: 0.1em solid #2c3e50;
   border-radius: 0.2em;
   display: inline-block;
   width: 1em;
   height: 1em;
   padding-left: 0.2em;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.3em;
   padding-right: 0.2em;
-  margin-right: 0.8em;
-  vertical-align: bottom;
   color: transparent;
   transition: 0.2s;
 }
 
-input[type="checkbox"] + label:active:before {
+input[type="checkbox"] + label.shadow:active:before {
   transform: scale(0);
 }
 
-input[type="checkbox"]:checked + label:before {
+input[type="checkbox"]:checked + label.shadow:before {
   background-color: #42b983;
   border-color: #42b983;
   color: #fff;
