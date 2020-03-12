@@ -7,6 +7,8 @@
     <input type="text" v-model="addTaskName" placeholder="Task" class="input" />
     <button @click="addTask" class="btn">Add</button>
 
+    <p v-show="!sortedTasks.length">Nothing to do</p>
+
     <ul id="tasks-list">
       <li v-for="task in sortedTasks" :key="task.id">
         <TaskItem
