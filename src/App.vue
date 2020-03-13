@@ -4,8 +4,16 @@
       <h1>Todo</h1>
     </div>
 
-    <input type="text" v-model="addTaskName" placeholder="Task" class="input" />
-    <button @click="addTask" class="btn">Add</button>
+    <form @submit.prevent="addTask">
+      <input
+        type="text"
+        v-model="addTaskName"
+        placeholder="Task"
+        class="input"
+        required
+      />
+      <input type="submit" class="btn" value="Add" />
+    </form>
 
     <p v-show="!sortedTasks.length">Nothing to do</p>
 
