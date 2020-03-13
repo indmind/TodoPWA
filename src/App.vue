@@ -19,11 +19,7 @@
 
     <ul id="tasks-list">
       <li v-for="task in sortedTasks" :key="task.id">
-        <TaskItem
-          :task="task"
-          @change="onTaskChecked"
-          @delete="onTaskDeleted"
-        />
+        <TaskItem :task="task" @check="onTaskCheck" @delete="onTaskDelete" />
       </li>
     </ul>
   </div>
@@ -38,9 +34,11 @@ export default {
   name: "App",
   components: { TaskItem },
   firestore() {
+    const tasks = db.collection("tasks");
+
     return {
-      sortedTasks: db.collection("tasks").orderBy("created", "desc"),
-      tasks: db.collection("tasks")
+      sortedTasks: tasks.orderBy("created", "desc"),
+      tasks
     };
   },
   data() {
@@ -49,12 +47,12 @@ export default {
     };
   },
   methods: {
-    onTaskChecked({ key, status }) {
+    onTaskCheck({ key, status }) {
       this.$firestore.tasks.doc(key).update({
         done: status
       });
     },
-    onTaskDeleted(key) {
+    onTaskDelete(key) {
       this.$firestore.tasks.doc(key).delete();
     },
     addTask() {

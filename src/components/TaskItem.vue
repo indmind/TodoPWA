@@ -3,11 +3,10 @@
     <div class="checkbox-container">
       <input
         type="checkbox"
-        class="checkbox"
         :id="task['.key']"
         :checked="task.done"
         @change="
-          $emit('change', {
+          $emit('check', {
             key: task['.key'],
             status: $event.target.checked
           })
@@ -53,10 +52,6 @@ export default {
   opacity: 0.5;
 }
 
-.checkbox {
-  background-color: #2196f3;
-}
-
 input[type="checkbox"] + label.shadow {
   display: block;
   cursor: pointer;
@@ -74,7 +69,7 @@ input[type="checkbox"] + label.shadow:before {
   width: 1em;
   height: 1em;
   padding-left: 0.2em;
-  padding-bottom: 0.3em;
+  padding-bottom: 0.4em;
   padding-right: 0.2em;
   color: transparent;
   transition: 0.2s;
